@@ -1,9 +1,14 @@
 import React from 'react';
+import AlbumBground from './AlbumBground';
+import './Album.css';
 
-function Album({ height }) {
+function Album() {
   return (
-    <div id="album" style={{ height, backgroundColor: 'peachpuff', padding: '20px' }}>
-      <p>相簿內容...</p>
+    <div id="album" className="album-container">
+      <AlbumBground />
+      <div className="album-content">
+        {/* Album content here */}
+      </div>
     </div>
   );
 }
