@@ -10,3 +10,15 @@
   z-index: 1;
   height: 100%;
 }
+
+
+
+.top-wave, .bottom-wave {
+  width: 100%;
+  display: block;
+}
+
+.bottom-wave {
+  position: absolute;
+  bottom: 0;
+}
