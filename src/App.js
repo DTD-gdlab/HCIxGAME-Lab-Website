@@ -5,7 +5,7 @@ import Faculty from './Faculty';
 import Thesis from './Thesis';
 import Topics from './Topics';
 //import Honors from './Honors';
-//import Album from './Album'; // 假设 Album 是相簿组件
+import Album from './Album'; // 假设 Album 是相簿组件
 import Camp from './Camp';
 import Footer from './Footer';
 import logo from './img/logo.svg'; // 导入图片
@@ -88,7 +88,7 @@ function App() {
       thesis: document.getElementById('thesis') ? document.getElementById('thesis').offsetTop : 0,
       topics: document.getElementById('topics') ? document.getElementById('topics').offsetTop : 0,
       //honors: document.getElementById('honors') ? document.getElementById('honors').offsetTop : 0,
-      //album: document.getElementById('album') ? document.getElementById('album').offsetTop : 0,
+      album: document.getElementById('album') ? document.getElementById('album').offsetTop : 0,
       camp: document.getElementById('camp') ? document.getElementById('camp').offsetTop : 0,
       // contact: document.getElementById('contact') ? document.getElementById('contact').offsetTop : 0,
       footerDistance: document.querySelector('.footer') ? document.querySelector('.footer').offsetTop : 0,
@@ -109,7 +109,7 @@ function App() {
       setNewText('研究生論文');
       setSidebarBgColor(COLORS.oddSectionBackground);
       setIsSidebarVisible(true); // 隱藏側邊欄
-    } else if (scrollPosition >= positions.topics && scrollPosition < positions.camp) {//記得改回positions.honors
+    } else if (scrollPosition >= positions.topics && scrollPosition < positions.album) {//記得改回positions.honors
       setNewText('研究領域');
       setSidebarBgColor(COLORS.evenSectionBackground);
       setIsSidebarVisible(true); // 隱藏側邊欄
@@ -117,11 +117,11 @@ function App() {
       setNewText('榮譽榜');
       setSidebarBgColor(COLORS.oddSectionBackground);
       setIsSidebarVisible(true); // 隱藏側邊欄
-    } else if (scrollPosition >= positions.album && scrollPosition < positions.camp) {
+    }*/ else if (scrollPosition >= positions.album && scrollPosition < positions.camp) {
       setNewText('相簿');
       setSidebarBgColor(COLORS.evenSectionBackground);
       setIsSidebarVisible(true); // 隱藏側邊欄
-    }*/ else if (scrollPosition >= positions.camp && scrollPosition < positions.footerDistance) {
+    } else if (scrollPosition >= positions.camp && scrollPosition < positions.footerDistance) {
       setNewText('冬夏令營');
       setSidebarBgColor(COLORS.oddSectionBackground);
       setIsSidebarVisible(true); // 隱藏側邊欄
@@ -182,7 +182,7 @@ function App() {
         <Thesis height="800px" id="thesis" />
         <Topics height="800px" id="topics" />
         {/* <Honors height="800px" id="honors" /> */}
-        {/* <Album height="800px" id="album" /> */}
+        <Album height="800px" id="album" /> 
         <Camp height="800px" id="camp" />
         <button onClick={scrollToTop} className="scrollToTopButton">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
