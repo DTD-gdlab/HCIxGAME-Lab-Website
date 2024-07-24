@@ -88,4 +88,5 @@
   height: 288px;
   object-fit: cover; /* 保證圖片縮放不變形 */
   margin-bottom: 40px; /* 照片之間的間隔 */
+  border-radius: 20px; /* 圓角調整 */
 }
