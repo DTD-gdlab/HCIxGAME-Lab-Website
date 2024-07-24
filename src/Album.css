@@ -1,24 +1,84 @@
 .album-container {
   position: relative;
-  height: 100vh;
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-.album-content {
-  position: relative;
-  z-index: 1;
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
 }
 
-
-
-.top-wave, .bottom-wave {
+.top-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  display: block;
+  z-index: 1;
 }
 
 .bottom-wave {
   position: absolute;
   bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.white-wave {
+  z-index: 2;
+}
+
+.grey-wave {
+  z-index: 1;
+}
+
+.album-content {
+  position: relative;
+  z-index: 3;
+  
+}
+
+/* Adjustments for wave positions */
+.white-wave.top-wave {
+  transform: translateY(0px); /* Adjust this value to control the offset of the white wave */
+}
+
+.grey-wave.top-wave {
+  
+  transform: translateY(30px); /* Optional: Adjust this value to control the offset of the grey wave */
+}
+
+.white-wave.bottom-wave {
+  transform: translateY(0px); /* Adjust this value to control the offset of the white wave */
+}
+
+.grey-wave.bottom-wave {
+  transform: translateY(-30px); /* Optional: Adjust this value to control the offset of the grey wave */
+}
+
+.welcome-image {
+  position: absolute;
+  left: 216px; /* Adjust this value to change the left margin */
+  top: 25%; /* Adjust this value to change the top margin */
+  z-index: 1; /* Ensure it is above the background but below other content if necessary */
+}
+
+.album-block {
+  position: absolute;
+  right: 112px;
+  top: 50px; /* 可以根據需要調整 */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.album-photo {
+  width: 384px;
+  height: 288px;
+  object-fit: cover; /* 保證圖片縮放不變形 */
 }

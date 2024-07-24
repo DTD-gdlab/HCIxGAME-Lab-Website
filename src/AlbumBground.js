@@ -1,8 +1,7 @@
 // AlbumBground.js
 import React, { useEffect, useRef } from 'react';
 import './AlbumBground.css'; // 引入 CSS 文件
-import UpWhiteWave from './img/UpWhiteWave.svg'; // Import the SVG
-import UpGreyWave from './img/UpGreyWave.svg'; // Import the SVG
+
 const AlbumBground = () => {
   const interBubbleRef = useRef(null);
 
@@ -38,8 +37,7 @@ const AlbumBground = () => {
   return (
     <>
       <div className="gradient-bg">
-      <img src={UpWhiteWave} alt="Top Decorative Wave" className="top-wave" /> {/* SVG at the top */}
-      <img src={UpGreyWave} alt="Top Decorative Wave" className="top-wave" /> {/* SVG at the top */}
+
         <svg xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="goo">
