@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AlbumBground from './AlbumBground';
 import './Album.css';
 
@@ -34,6 +34,44 @@ const albumPhotos = [
 ];
 
 function Album() {
+  const [offset, setOffset] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef(null);
+  const animationRef = useRef(null);
+
+  const photoHeight = 288; // 照片高度
+  const gap = 40; // 照片之間的間隔
+  const totalHeight = albumPhotos.length * (photoHeight + gap);
+
+  const animate = () => {
+    if (!isPaused) {
+      setOffset((prevOffset) => {
+        const newOffset = (prevOffset + 1) % totalHeight;
+        if (newOffset === 0) {
+          containerRef.current.style.transition = 'none';
+          containerRef.current.style.transform = `translateY(0px)`;
+          void containerRef.current.offsetHeight; // 強制重排
+          containerRef.current.style.transition = 'transform 0.1s linear';
+        }
+        return newOffset;
+      });
+    }
+    animationRef.current = requestAnimationFrame(animate);
+  };
+
+  useEffect(() => {
+    animationRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationRef.current);
+  }, [isPaused]);
+
+  const handleMouseEnter = () => {
+    setIsPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
+  };
+
   return (
     <div id="album" className="album-container">
       <img src={UpWhiteWave} alt="Top Decorative Wave" className="top-wave white-wave" /> {/* SVG at the top */}
@@ -50,10 +88,28 @@ function Album() {
       <div className="album-content">
         {/* Album content here */}
       </div>
-      <div className="album-block">
-        {albumPhotos.map((photo, index) => (
-          <img key={index} src={photo} alt={`Album Photo ${index + 1}`} className="album-photo" />
-        ))}
+      <div 
+        className="album-block"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div
+          ref={containerRef}
+          className="album-photo-container"
+          style={{
+            transform: `translateY(-${offset}px)`,
+            height: `${totalHeight * 2}px`, // 雙倍高度以實現無縫循環
+          }}
+        >
+          {[...albumPhotos, ...albumPhotos].map((photo, index) => (
+            <img
+              key={index}
+              src={photo}
+              alt={`Album Photo ${index % albumPhotos.length + 1}`}
+              className="album-photo"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

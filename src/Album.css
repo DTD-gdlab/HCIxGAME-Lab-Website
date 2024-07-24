@@ -40,7 +40,6 @@
 .album-content {
   position: relative;
   z-index: 3;
-  
 }
 
 /* Adjustments for wave positions */
@@ -49,7 +48,6 @@
 }
 
 .grey-wave.top-wave {
-  
   transform: translateY(30px); /* Optional: Adjust this value to control the offset of the grey wave */
 }
 
@@ -71,14 +69,23 @@
 .album-block {
   position: absolute;
   right: 112px;
-  top: 50px; /* 可以根據需要調整 */
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  top: 20px; /* 可以根據需要調整 */
+  height: 100%; /* 滾動區塊的高度 */
+  width: 384px;
+  overflow: hidden; /* 隱藏滾動條 */
+}
+
+.album-photo-container {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.1s linear;
 }
 
 .album-photo {
   width: 384px;
   height: 288px;
   object-fit: cover; /* 保證圖片縮放不變形 */
+  margin-bottom: 40px; /* 照片之間的間隔 */
 }
