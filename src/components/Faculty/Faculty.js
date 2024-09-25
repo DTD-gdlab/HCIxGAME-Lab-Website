@@ -9,7 +9,7 @@ function Faculty() {
           <div className='faculty_planet1'></div>
           <div className='faculty_np'>
             <p className='faculty_name'>范丙林</p>
-            <p className='faculty_position'>特聘教授兼研發長</p>
+            <p className='faculty_position'>特聘教授</p>
           </div>
           <div className='faculty_img1'></div>
           <div className='faculty_content'>
