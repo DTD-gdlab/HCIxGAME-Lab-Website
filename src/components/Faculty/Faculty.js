@@ -38,7 +38,7 @@ function Faculty() {
           </div>
           <div className='faculty_img2'></div>
           <div className='faculty_content'>
-            <p className='faculty_eq'>國立台灣大學電機工程博士</p>
+            <p className='faculty_eq'>國立臺灣大學電機工程博士</p>
             <div>
               <div className='faculty_email'>
                 <div className='faculty_icon1'></div>
